@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: basic-task
+  namespace: pipeline-project
+spec:
+  params:
+    - name: taskAppName
+      type: string
+  steps:
+    - image: registry.redhat.io/ubi8/python-36
+      command:
+        - /usr/bin/python3
+        - '-c'
+        - print ("$(inputs.params.taskAppName)")

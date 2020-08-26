@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: django-example
+  name: django-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: django-example
+  template:
+    metadata:
+      labels:
+        app: django-example
+    spec:
+      containers:
+        - image: <image_registry>/<openshifti_project>/<image_name>:<image_tag>
+          imagePullPolicy: Always
+          name: django-example
+          ports:
+            - containerPort: 8080
+              protocol: TCP

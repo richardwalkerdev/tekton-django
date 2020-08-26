@@ -1,0 +1,19 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: basic-pipeline
+  namespace: pipeline-project
+spec:
+  params:
+    - default: default
+      description: pipeAppName
+      name: pipeAppName
+      type: string
+  tasks:
+    - name: basic-task
+      params:
+        - name: taskAppName
+          value: $(params.pipeAppName)
+      taskRef:
+        kind: Task
+        name: basic-task

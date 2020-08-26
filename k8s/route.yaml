@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: django-example
+  name: django-example
+spec:
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: django-example
+    weight: 100
