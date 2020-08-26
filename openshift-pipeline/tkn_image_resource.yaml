@@ -7,6 +7,6 @@ spec:
   type: image
   params:
     - name: url
-      value: 'image-registry.openshift-image-registry.svc:5000/pipeline-project/wagtail-example-img:latest'
+      value: 'image-registry.openshift-image-registry.svc:5000/pipeline-project/django-example-img:latest'
     - name: digest
       value: 
